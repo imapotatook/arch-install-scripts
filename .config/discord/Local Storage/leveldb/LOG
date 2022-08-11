@@ -1,6 +1,0 @@
-2022/08/11-10:57:20.705 158d Reusing MANIFEST /home/potato/.config/discord/Local Storage/leveldb/MANIFEST-000001
-2022/08/11-10:57:20.705 158d Recovering log #19
-2022/08/11-10:57:20.705 158d Reusing old log /home/potato/.config/discord/Local Storage/leveldb/000019.log 
-2022/08/11-10:59:28.004 1708 Level-0 table #23: started
-2022/08/11-10:59:28.052 1708 Level-0 table #23: 1123405 bytes OK
-2022/08/11-10:59:28.055 1708 Delete type=0 #19
