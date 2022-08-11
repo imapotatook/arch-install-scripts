@@ -83,19 +83,19 @@ function mounting {
     mount -o noatime,commit=120,compress=zstd,subvol=@opt $rootp /mnt/opt
     mount -o noatime,commit=120,compress=zstd,subvol=@tmp $rootp /mnt/tmp
     mount -o subvol=@var $rootp /mnt/var
-	read -r -p "Do you want to use a seperate home partition? [y/N] " responsehome
-	case "$responsehome" in
-		[yY][eE][sS]|[yY])
+	#read -r -p "Do you want to use a seperate home partition? [y/N] " responsehome
+	#case "$responsehome" in
+	#	[yY][eE][sS]|[yY])
 			read -r -p "which is your home partition? " homep
 			read -r -p "Do you want to format your home partition? [y/N] " rhome
 			case "$rhome" in
 				[yY][eE][sS]|[yY])
 					mkfs.btrfs -f $homep
+					mount -o noatime,commit=120,compress=zstd,subvol=@home $homep /mnt/home
 					;;
 				*)
 					;;
 			esac
-            mount -o noatime,commit=120,compress=zstd,subvol=@home $homep /mnt/home
 			;;
 		*)
 			;;
