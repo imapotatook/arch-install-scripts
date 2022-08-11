@@ -69,7 +69,7 @@ function mounting {
     btrfs su cr /mnt/@tmp
     umount /mnt
     mount -o noatime,commit=120,compress=zstd,subvol=@ $rootp /mnt
-	mkdir /mnt/{boot,var,opt,tmp}
+	mkdir /mnt/{home,boot,var,opt,tmp}
 	read -r -p "which is your boot partition? " bootp
 	read -r -p "Do you want to format your boot partition? [y/N] " response
 	case "$response" in
@@ -91,16 +91,11 @@ function mounting {
 			case "$rhome" in
 				[yY][eE][sS]|[yY])
 					mkfs.btrfs -f $homep
+					mount -o noatime,commit=120,compress=zstd,subvol=@home $homep /mnt/home
 					;;
 				*)
 					;;
 			esac
-			mkdir /mnt/home
-            mount -o noatime,commit=120,compress=zstd,subvol=@home $homep /mnt/home
-			;;
-		*)
-			;;
-	esac
 	cont
 }
 
