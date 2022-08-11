@@ -1,0 +1,29 @@
+[2022-08-11T01:27:46.582Z] Log level: Info
+[2022-08-11T01:27:46.582Z] [info] Validating found git in: git
+[2022-08-11T01:27:46.592Z] [info] Using git 2.37.1 from git
+[2022-08-11T01:27:47.348Z] > git rev-parse --show-toplevel [2ms]
+[2022-08-11T01:27:47.362Z] > git rev-parse --git-dir --git-common-dir [7ms]
+[2022-08-11T01:27:47.369Z] [info] Open repository: /home/potato
+[2022-08-11T01:27:47.505Z] > git status -z -uall [127ms]
+[2022-08-11T01:27:47.717Z] > git show --textconv :arch-setup.sh [7ms]
+[2022-08-11T01:27:47.719Z] > git ls-files --stage -- /home/potato/arch-setup.sh [3ms]
+[2022-08-11T01:27:47.908Z] > git check-ignore -v -z --stdin [2ms]
+[2022-08-11T01:28:31.765Z] > git show --textconv :private-git/arch-setup.sh [17ms]
+[2022-08-11T01:28:31.768Z] > git ls-files --stage -- /home/potato/private-git/arch-setup.sh [8ms]
+[2022-08-11T01:28:32.020Z] > git check-ignore -v -z --stdin [3ms]
+[2022-08-11T01:28:35.654Z] > git symbolic-ref --short HEAD [1ms]
+[2022-08-11T01:28:35.660Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+[2022-08-11T01:28:35.669Z] > git remote --verbose [1ms]
+[2022-08-11T01:28:35.669Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+[2022-08-11T01:28:35.776Z] > git config --get commit.template [2ms]
+[2022-08-11T01:28:37.494Z] > git status -z -uall [1711ms]
+[2022-08-11T01:28:37.495Z] > git symbolic-ref --short HEAD [5ms]
+[2022-08-11T01:28:37.500Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [1ms]
+[2022-08-11T01:28:37.508Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+[2022-08-11T01:28:37.509Z] > git remote --verbose [2ms]
+[2022-08-11T01:28:37.586Z] > git config --get commit.template [0ms]
+[2022-08-11T01:29:28.553Z] > git show --textconv :private-git/arch-setup.sh [6ms]
+[2022-08-11T01:29:28.554Z] > git ls-files --stage -- /home/potato/private-git/arch-setup.sh [2ms]
+[2022-08-11T03:49:22.882Z] > git ls-files --stage -- /home/potato/private-git/arch-setup.sh [1ms]
+[2022-08-11T03:49:22.882Z] fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).

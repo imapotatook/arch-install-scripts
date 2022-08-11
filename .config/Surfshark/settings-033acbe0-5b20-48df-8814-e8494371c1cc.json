@@ -1,0 +1,9 @@
+{
+	"settings_tcp": true,
+	"settings_cleanweb": false,
+	"settings_protocol": "wg",
+	"settings_connection_mode": "fastest",
+	"autoconnect_location": "fastest",
+	"autoconnect_enabled": false,
+	"autoconnect_trusted_physical_connection": []
+}

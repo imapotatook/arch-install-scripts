@@ -1,0 +1,138 @@
+2022-08-07T23:37:16.865Z [ELECTRON:user-action] info: onSubscribed|"sharkState"
+2022-08-07T23:37:16.869Z [ELECTRON:user-action] info: onSubscribed:success
+2022-08-07T23:37:16.922Z [ELECTRON:ipc-client] debug: Call ipc method getState
+2022-08-07T23:37:16.924Z [ELECTRON:ipc-client] debug: Call ipc method getState
+2022-08-07T23:37:59.556Z [ELECTRON:user-action] info: login
+2022-08-07T23:38:01.769Z [ELECTRON:fetch] info: POST /v1/auth/login	200
+2022-08-07T23:38:04.801Z [ELECTRON:fetch] info: GET /v1/account/users/me	 timed out
+2022-08-07T23:38:04.865Z [ELECTRON:user-action] info: login:error Request timed out.	
+2022-08-07T23:38:17.250Z [ELECTRON:user-action] info: login
+2022-08-07T23:38:20.091Z [ELECTRON:fetch] info: POST /v1/auth/login	200
+2022-08-07T23:38:20.609Z [ELECTRON:fetch] info: GET /v1/account/users/me	200
+2022-08-07T23:38:20.646Z [ELECTRON:user] info: logged in
+2022-08-07T23:38:20.819Z [ELECTRON:user-action] info: refetchLocations|{"throws":true}
+2022-08-07T23:38:20.823Z [ELECTRON:user-action] info: getUserData
+2022-08-07T23:38:20.864Z [ELECTRON:fetch] info: GET /v4/server/clusters/all	200
+2022-08-07T23:38:21.002Z [ELECTRON:fetch] info: GET /v4/server/clusters/all	200
+2022-08-07T23:38:21.059Z [ELECTRON:user-action] info: refetchLocations:success
+2022-08-07T23:38:21.271Z [ELECTRON:fetch] info: GET /v1/server/user	200
+2022-08-07T23:38:21.281Z [ELECTRON:user-action] info: getUserData:success
+2022-08-07T23:38:21.358Z [ELECTRON:fetch] info: GET /v1/server/user	200
+2022-08-07T23:38:22.049Z [ELECTRON:fetch] info: GET /v1/payment/subscriptions/current	200
+2022-08-07T23:38:22.117Z [ELECTRON:user-action] info: login:success
+2022-08-07T23:38:30.797Z [ELECTRON:user-action] info: selectProtocol|"wg"
+2022-08-07T23:38:30.811Z [ELECTRON:user-action] info: selectProtocol:success
+2022-08-07T23:38:30.812Z [ELECTRON:user-action] info: selectProtocol|"wg"
+2022-08-07T23:38:30.813Z [ELECTRON:user-action] info: selectProtocol:success
+2022-08-07T23:38:34.929Z [ELECTRON:user-action] info: refetchLocations|{"throws":true}
+2022-08-07T23:38:34.933Z [ELECTRON:user-action] info: refetchLocations:success
+2022-08-07T23:38:34.942Z [ELECTRON:user-action] info: getUserData
+2022-08-07T23:38:35.228Z [ELECTRON:fetch] info: GET /v1/server/user	200
+2022-08-07T23:38:35.288Z [ELECTRON:user-action] info: getUserData:success
+2022-08-07T23:38:37.433Z [ELECTRON:user-action] info: connect|{"cluster":{"id":"ad720fbf-cf4b-4a99-880a-3b904804fb93","country":"Australia","countryCode":"AU","region":"Asia Pacific","regionCode":"AP","load":14,"type":"generic","location":"Adelaide","connectionName":"au-adl.prod.surfshark.com","tags":["physical"],"transitCluster":null,"flagUrl":"https://cdn.ss-cdn.com/assets/flags/AU.png","pubKey":"J7N3UrHc71+LJkn8gsI9Ja8YcpTXT8fV789LLKnIXAY="},"intent":"location_list"}
+2022-08-07T23:38:37.436Z [ELECTRON:action-manager] info: yield number 1
+2022-08-07T23:38:37.443Z [ELECTRON:action-manager] info: yield number 2
+2022-08-07T23:38:37.448Z [ELECTRON:action-manager] info: yield number 3
+2022-08-07T23:38:37.453Z [ELECTRON:action-manager] info: yield number 4
+2022-08-07T23:38:37.461Z [ELECTRON:action-manager] info: yield number 5
+2022-08-07T23:38:37.467Z [ELECTRON:action-manager] info: yield number 6
+2022-08-07T23:38:37.506Z [ELECTRON:action-manager] info: yield number 7
+2022-08-07T23:38:37.510Z [ELECTRON:ipc-client] debug: Call ipc method generatePair
+2022-08-07T23:38:38.134Z [ELECTRON:fetch] info: POST /v1/account/users/public-keys	201
+2022-08-07T23:38:38.161Z [ELECTRON:action-manager] info: yield number 8
+2022-08-07T23:38:38.166Z [ELECTRON:action-manager] info: yield number 9
+2022-08-07T23:38:38.173Z [ELECTRON:action-manager] info: yield number 10
+2022-08-07T23:38:39.481Z [ELECTRON:action-manager] info: yield number 11
+2022-08-07T23:38:39.484Z [ELECTRON:action-manager] info: yield number 12
+2022-08-07T23:38:39.484Z [ELECTRON:ipc-client] debug: Call ipc method addIPV6Connection
+2022-08-07T23:38:39.510Z [ELECTRON:action-manager] info: yield number 13
+2022-08-07T23:38:39.513Z [ELECTRON:action-manager] info: yield number 14
+2022-08-07T23:38:39.569Z [ELECTRON:action-manager] info: yield number 15
+2022-08-07T23:38:39.569Z [ELECTRON:ipc-client] debug: Call ipc method add
+2022-08-07T23:38:40.584Z [ELECTRON:action-manager] info: yield number 16
+2022-08-07T23:38:40.585Z [ELECTRON:ipc-client] debug: Call ipc method connect
+2022-08-07T23:38:40.771Z [ELECTRON:action-manager] info: yield number 17
+2022-08-07T23:38:40.781Z [ELECTRON:action-manager] info: yield number 18
+2022-08-07T23:38:40.786Z [ELECTRON:action-manager] info: yield number 19
+2022-08-07T23:38:41.852Z [ELECTRON:action-manager] info: yield number 20
+2022-08-07T23:38:41.861Z [ELECTRON:action-manager] info: yield number 21
+2022-08-07T23:38:41.929Z [ELECTRON:action-manager] info: yield number 22
+2022-08-07T23:38:41.936Z [ELECTRON:action-manager] info: yield number 23
+2022-08-07T23:38:41.943Z [ELECTRON:action-manager] info: yield number 24
+2022-08-07T23:38:41.990Z [ELECTRON:action-manager] info: yield number 25
+2022-08-07T23:38:41.990Z [ELECTRON:user-action] info: connect:success
+2022-08-07T23:38:42.149Z [ELECTRON:user-action] info: getUserData
+2022-08-07T23:38:42.577Z [ELECTRON:fetch] info: GET /v1/server/user	200
+2022-08-07T23:38:42.600Z [ELECTRON:user-action] info: getUserData:success
+2022-08-07T23:38:43.774Z [ELECTRON:ipc-client] debug: Call ipc method getState
+2022-08-07T23:39:51.316Z [ELECTRON:user-action] info: selectTheme|"dark"
+2022-08-07T23:39:51.343Z [ELECTRON:user-action] info: selectTheme:success
+2022-08-07T23:48:46.975Z [ELECTRON:ipc-client] debug: Call ipc method disconnect
+2022-08-07T23:48:46.976Z [ELECTRON:ipc-client] debug: Call ipc method disconnect
+2022-08-07T23:50:21.833Z [ELECTRON:user-action] info: onSubscribed|"sharkState"
+2022-08-07T23:50:21.836Z [ELECTRON:user-action] info: onSubscribed:success
+2022-08-07T23:50:21.932Z [ELECTRON:ipc-client] debug: Call ipc method getState
+2022-08-07T23:50:21.933Z [ELECTRON:ipc-client] debug: Call ipc method getState
+2022-08-07T23:50:22.035Z [ELECTRON:user-action] info: refetchLocations|{"throws":true}
+2022-08-07T23:50:22.305Z [ELECTRON:fetch] info: GET /v4/server/clusters/all	200
+2022-08-07T23:50:22.353Z [ELECTRON:user-action] info: refetchLocations:success
+2022-08-07T23:50:22.630Z [ELECTRON:user-action] info: getUserData
+2022-08-07T23:50:22.637Z [ELECTRON:fetch] info: GET /v1/account/users/me	200
+2022-08-07T23:50:22.854Z [ELECTRON:fetch] info: GET /v1/server/user	200
+2022-08-07T23:50:22.861Z [ELECTRON:user-action] info: getUserData:success
+2022-08-07T23:50:24.100Z [ELECTRON:user-action] info: connect|{"cluster":{"id":"ad720fbf-cf4b-4a99-880a-3b904804fb93","country":"Australia","countryCode":"AU","region":"Asia Pacific","regionCode":"AP","load":12,"type":"generic","location":"Adelaide","connectionName":"au-adl.prod.surfshark.com","tags":["physical"],"transitCluster":null,"flagUrl":"https://cdn.ss-cdn.com/assets/flags/AU.png","pubKey":"J7N3UrHc71+LJkn8gsI9Ja8YcpTXT8fV789LLKnIXAY="},"intent":"location_list"}
+2022-08-07T23:50:24.103Z [ELECTRON:action-manager] info: yield number 1
+2022-08-07T23:50:24.115Z [ELECTRON:action-manager] info: yield number 2
+2022-08-07T23:50:24.123Z [ELECTRON:action-manager] info: yield number 3
+2022-08-07T23:50:24.131Z [ELECTRON:action-manager] info: yield number 4
+2022-08-07T23:50:24.144Z [ELECTRON:action-manager] info: yield number 5
+2022-08-07T23:50:24.154Z [ELECTRON:action-manager] info: yield number 6
+2022-08-07T23:50:24.195Z [ELECTRON:action-manager] info: yield number 7
+2022-08-07T23:50:24.721Z [ELECTRON:fetch] info: POST /v1/account/users/public-keys/validate	200
+2022-08-07T23:50:24.723Z [ELECTRON:action-manager] info: yield number 8
+2022-08-07T23:50:24.728Z [ELECTRON:action-manager] info: yield number 9
+2022-08-07T23:50:24.734Z [ELECTRON:action-manager] info: yield number 10
+2022-08-07T23:50:24.781Z [ELECTRON:action-manager] info: yield number 11
+2022-08-07T23:50:24.789Z [ELECTRON:action-manager] info: yield number 12
+2022-08-07T23:50:24.790Z [ELECTRON:ipc-client] debug: Call ipc method addIPV6Connection
+2022-08-07T23:50:24.794Z [ELECTRON:action-manager] info: yield number 13
+2022-08-07T23:50:24.801Z [ELECTRON:action-manager] info: yield number 14
+2022-08-07T23:50:24.861Z [ELECTRON:action-manager] info: yield number 15
+2022-08-07T23:50:24.863Z [ELECTRON:ipc-client] debug: Call ipc method add
+2022-08-07T23:50:25.871Z [ELECTRON:action-manager] info: yield number 16
+2022-08-07T23:50:25.914Z [ELECTRON:ipc-client] debug: Call ipc method disconnect
+2022-08-07T23:50:25.924Z [ELECTRON:ipc-client] debug: Call ipc method remove
+2022-08-07T23:50:26.450Z [ELECTRON:ipc-client] debug: Call ipc method removeIPV6Connection
+2022-08-07T23:50:26.501Z [ELECTRON:action-manager] info: yield number 17
+2022-08-07T23:50:26.503Z [ELECTRON:action-manager] info: yield number 18
+2022-08-07T23:50:26.517Z [ELECTRON:action-manager] info: yield number 19
+2022-08-07T23:50:26.664Z [ELECTRON:user-action] info: getUserData
+2022-08-07T23:50:26.889Z [ELECTRON:fetch] info: GET /v1/server/user	200
+2022-08-07T23:50:26.911Z [ELECTRON:user-action] info: getUserData:success
+2022-08-07T23:50:27.029Z [ELECTRON:fetch] info: POST /v1/account/users/public-keys/validate	200
+2022-08-07T23:50:27.030Z [ELECTRON:action-manager] info: yield number 20
+2022-08-07T23:50:27.035Z [ELECTRON:action-manager] info: yield number 21
+2022-08-07T23:50:27.040Z [ELECTRON:action-manager] info: yield number 22
+2022-08-07T23:50:27.065Z [ELECTRON:action-manager] info: yield number 23
+2022-08-07T23:50:27.068Z [ELECTRON:action-manager] info: yield number 24
+2022-08-07T23:50:27.068Z [ELECTRON:ipc-client] debug: Call ipc method addIPV6Connection
+2022-08-07T23:50:27.081Z [ELECTRON:action-manager] info: yield number 25
+2022-08-07T23:50:27.084Z [ELECTRON:action-manager] info: yield number 26
+2022-08-07T23:50:27.091Z [ELECTRON:action-manager] info: yield number 27
+2022-08-07T23:50:27.092Z [ELECTRON:ipc-client] debug: Call ipc method add
+2022-08-07T23:50:28.102Z [ELECTRON:action-manager] info: yield number 28
+2022-08-07T23:50:28.103Z [ELECTRON:ipc-client] debug: Call ipc method connect
+2022-08-07T23:50:28.199Z [ELECTRON:action-manager] info: yield number 29
+2022-08-07T23:50:28.210Z [ELECTRON:action-manager] info: yield number 30
+2022-08-07T23:50:28.214Z [ELECTRON:action-manager] info: yield number 31
+2022-08-07T23:50:29.283Z [ELECTRON:action-manager] info: yield number 32
+2022-08-07T23:50:29.290Z [ELECTRON:action-manager] info: yield number 33
+2022-08-07T23:50:29.342Z [ELECTRON:action-manager] info: yield number 34
+2022-08-07T23:50:29.348Z [ELECTRON:action-manager] info: yield number 35
+2022-08-07T23:50:29.353Z [ELECTRON:action-manager] info: yield number 36
+2022-08-07T23:50:29.355Z [ELECTRON:action-manager] info: yield number 37
+2022-08-07T23:50:29.355Z [ELECTRON:user-action] info: connect:success
+2022-08-07T23:50:29.630Z [ELECTRON:user-action] info: getUserData
+2022-08-07T23:50:29.840Z [ELECTRON:fetch] info: GET /v1/server/user	200
+2022-08-07T23:50:29.864Z [ELECTRON:user-action] info: getUserData:success
+2022-08-07T23:50:31.205Z [ELECTRON:ipc-client] debug: Call ipc method getState

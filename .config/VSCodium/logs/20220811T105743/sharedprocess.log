@@ -1,0 +1,11 @@
+[2022-08-11 10:57:46.664] [sharedprocess] [info] Starting worker process with pid 6133 (type: fileWatcher, window: 1).
+[2022-08-11 10:58:58.777] [sharedprocess] [info] Getting Manifest... 21zz.vscord
+[2022-08-11 10:58:59.052] [sharedprocess] [info] Installing extension: 21zz.vscord
+[2022-08-11 10:59:06.507] [sharedprocess] [info] Downloaded extension: 21zz.vscord /home/potato/.config/VSCodium/CachedExtensionVSIXs/21zz.vscord-4.5.1
+[2022-08-11 10:59:06.551] [sharedprocess] [info] Extracted extension to /home/potato/.vscode-oss/extensions/.72c452a9-19e0-418a-8360-4e9b041cf002: 21zz.vscord
+[2022-08-11 10:59:06.559] [sharedprocess] [info] Renamed to /home/potato/.vscode-oss/extensions/21zz.vscord-4.5.1
+[2022-08-11 10:59:06.561] [sharedprocess] [info] Extracting completed. 21zz.vscord
+[2022-08-11 10:59:06.562] [sharedprocess] [info] Extension installed successfully: 21zz.vscord
+[2022-08-11 13:48:37.695] [sharedprocess] [warning] No ptyHost heartbeat after 6 seconds
+[2022-08-11 14:27:44.681] [sharedprocess] [warning] No ptyHost heartbeat after 6 seconds
+[2022-08-11 14:57:03.748] [sharedprocess] [warning] No ptyHost heartbeat after 6 seconds

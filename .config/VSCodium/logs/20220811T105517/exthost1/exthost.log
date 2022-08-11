@@ -1,0 +1,13 @@
+[2022-08-11 10:55:20.622] [exthost] [info] Extension host with pid 4761 started
+[2022-08-11 10:55:20.698] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: true, activationEvent: '*'
+[2022-08-11 10:55:20.702] [exthost] [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+[2022-08-11 10:55:20.706] [exthost] [info] ExtensionService#_doActivateExtension vscode.ipynb, startup: true, activationEvent: '*'
+[2022-08-11 10:55:20.724] [exthost] [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+[2022-08-11 10:55:20.744] [exthost] [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+[2022-08-11 10:55:20.789] [exthost] [info] Eager extensions activated
+[2022-08-11 10:55:21.007] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+[2022-08-11 10:55:21.017] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+[2022-08-11 10:55:43.922] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 10000
+[2022-08-11 10:55:45.607] [exthost] [warning] [Decorations] CAPPING events from decorations provider vscode.git 10036
+[2022-08-11 10:56:03.943] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2022-08-11 10:56:03.948] [exthost] [info] Extension host with pid 4761 exiting with code 0
