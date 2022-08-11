@@ -12,11 +12,11 @@
       <ExtraDataItem name="GUI/RecentListCD" value="/run/media/potato/Ventoy/archlinux-2022.08.05-x86_64.iso"/>
     </ExtraData>
     <MachineRegistry>
-      <MachineEntry uuid="{c5853593-6439-4620-9d51-181e22a3d3e0}" src="/home/potato/VirtualBox VMs/arch test/arch test.vbox"/>
+      <MachineEntry uuid="{1c5f5f80-8f5e-4cfc-90b2-62b0012b0882}" src="/home/potato/VirtualBox VMs/arch/arch.vbox"/>
     </MachineRegistry>
     <MediaRegistry>
       <HardDisks>
-        <HardDisk uuid="{5c80f79d-7326-4249-8420-6203132c614f}" location="/home/potato/VirtualBox VMs/arch test/arch test.vdi" format="VDI" type="Normal"/>
+        <HardDisk uuid="{6217e280-164b-4683-ba7c-a9abe3cd5929}" location="/home/potato/VirtualBox VMs/arch/arch.vdi" format="VDI" type="Normal"/>
       </HardDisks>
     </MediaRegistry>
     <NetserviceRegistry>
