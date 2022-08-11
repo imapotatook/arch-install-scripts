@@ -257,8 +257,8 @@ function install-amd {
 	pacstrap /mnt libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
 }
 function install-intel {
-	pacstrap /mnt mesa lib32-mesa vulkan-intel lib32-vulkan-intel 
-	pacstrap /mnt libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+	arch-chroot /mnt bash -c "pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel" 
+	arch-chroot /mnt bash -c "pacman -S libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau && exit"
 }
 function install-nvidia {
 	br
@@ -320,7 +320,8 @@ function additional {
 }
 
 function chaotic-aur {
-	br read -r -p "Do you want to add the Chaotic-aur repo [Y/n] " chaotic
+	br 
+	read -r -p "Do you want to add the Chaotic-aur repo [Y/n] " chaotic
 	case "$chaotic" in 
 	    [Yy][eE][sS]|[yY])
 		    arch-chroot /mnt bash -c "pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com && pacman-key --lsign-key FBA220DFC880C036 && exit" 
