@@ -84,7 +84,6 @@ function mounting {
     mount -o noatime,commit=120,compress=zstd,subvol=@tmp $rootp /mnt/tmp
 	mount -o noatime,commit=120,compress=zstd,subvol=@home $rootp /mnt/home
 	mount -o subvol=@var $rootp /mnt/var
-	esac
 	cont
 }
 
@@ -92,6 +91,7 @@ function base {
 	br
 	echo "Starting installation of packages in selected root drive..."
 	sleep 1
+	pacman -Sy
 	pacstrap /mnt \
 				base \
 				diffutils \
@@ -123,7 +123,8 @@ function base {
 				pacman-contrib \
 				ttf-hack \
                 intel-ucode \
-                btrfs-progs
+                btrfs-progs \
+				reflector
 	genfstab -U /mnt >> /mnt/etc/fstab
 	cont
 }
@@ -152,7 +153,7 @@ function install-deepin {
 function install-kde {
 	pacstrap /mnt xorg plasma kde-applications sddm plasma-wayland-protocols plasma-wayland-session
 	arch-chroot /mnt bash -c "systemctl enable sddm && exit"
-	pacstrap /mnt ark dolphin ffmpegthumbs gwenview kaccounts-integration kate kdialog kio-extras konsole ksystemlog okular print-manager pipewire 
+	pacstrap /mnt ark dolphin ffmpegthumbs gwenview kaccounts-integration kate kdialog kio-extras konsole ksystemlog okular print-manager pipewire alacritty latte-dock
 }
 
 function de {
@@ -193,9 +194,6 @@ function archroot {
 	br
 	read -r -p "Enter the username: " uname
 	read -r -p "Enter the hostname: " hname
-
-    #echo -e "adding btrfs module to mkinitcpio"
-    #arch-chroot /mnt 
 
 	echo -e "Setting up Language\n"
 	arch-chroot /mnt bash -c "hwclock --systohc && sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen && locale-gen && echo 'LANG=en_US.UTF-8' > /etc/locale.conf && exit"
@@ -260,7 +258,7 @@ function install-amd {
 }
 function install-intel {
 	pacstrap /mnt mesa lib32-mesa vulkan-intel lib32-vulkan-intel 
-	pacsrap /mnt libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+	pacstrap /mnt libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
 }
 function install-nvidia {
 	br
@@ -324,7 +322,7 @@ function additional {
 function chaotic-aur {
 	br read -r -p "Do you want to add the Chaotic-aur repo [Y/n] " chaotic
 	case "$chaotic" in 
-	     [Yy][eE][sS]|yY)
+	    [Yy][eE][sS]|[yY])
 		    arch-chroot /mnt bash -c "pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com && pacman-key --lsign-key FBA220DFC880C036 && exit" 
 			arch-chroot /mnt bash -c "pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' && exit"
 			arch-chroot /mnt bash -c "echo '[chaotic-aur]' >> /etc/pacman.conf && echo Include = '/etc/pacman.d/chaotic-mirrorlist' >> /etc/pacman.conf && pacman -Sy && exit"
@@ -338,13 +336,13 @@ function full-installation {
 	mounting
 	base
 	archroot
+	chaotic-aur
     set-timezone
 	de
 	installgrub
 	graphics
 	installsteam
 	additional
-	chaotic-aur
 	browser
 	echo "Installation complete. Reboot you lazy bastard."
 }
@@ -356,17 +354,17 @@ function step-installation {
 	echo "3. mounting"
 	echo "4. base installation"
 	echo "5. archroot"
-    echo "6. set-timezone"
-	echo "7. installing a Desktop Environment"
-	echo "8. installing grub"
-	echo "9. graphics drivers"
-	echo "10. installing steam"
-	echo "11. additional stuff"
-	echo "12. adding chaotic-aur repo"
+	echo "6. adding chaotic-aur repo"
+    echo "7. set-timezone"
+	echo "8. installing a Desktop Environment"
+	echo "9. installing grub"
+	echo "10. graphics drivers"
+	echo "11. installing steam"
+	echo "12. additional stuff"
 	echo "13. installing browsers"
 	read -r -p "Enter the number of step : " stepno
 
-	array=(set-time partition mounting base archroot set-timezone de installgrub graphics installsteam additional chaotic-aur browser)
+	array=(set-time partition mounting base archroot chaotic-aur set-timezone de installgrub graphics installsteam additional browser)
 	#array=(ascii ascii ascii)
 	stepno=$[$stepno-1]
 	while [ $stepno -lt ${#array[*]} ]
@@ -398,4 +396,4 @@ case "$starti" in
 	*)
 		main
 		;;
-esac
+e	sac
