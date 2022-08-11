@@ -49,7 +49,7 @@ function partion {
 			echo "gdisk will be used for partioning"
 			read -r -p "which drive you want to partition (exapmle /dev/sda)? " drive
 			# Using gdisk for GPT, if you want to use MBR replace it with fdisk
-			gdisk $drive
+			cfdisk $drive
 			;;
 		*)
 			;;
@@ -90,11 +90,12 @@ function mounting {
 			read -r -p "Do you want to format your home partition? [y/N] " rhome
 			case "$rhome" in
 				[yY][eE][sS]|[yY])
-					mkfs.btrfs $homep
+					mkfs.btrfs -f $homep
 					;;
 				*)
 					;;
 			esac
+			mkdir /mnt/home
             mount -o noatime,commit=120,compress=zstd,subvol=@home $homep /mnt/home
 			;;
 		*)
