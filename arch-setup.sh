@@ -396,4 +396,4 @@ case "$starti" in
 	*)
 		main
 		;;
-e	sac
+esac
