@@ -91,11 +91,15 @@ function mounting {
 			case "$rhome" in
 				[yY][eE][sS]|[yY])
 					mkfs.btrfs -f $homep
-					mount -o noatime,commit=120,compress=zstd,subvol=@home $homep /mnt/home
 					;;
 				*)
 					;;
 			esac
+            mount -o noatime,commit=120,compress=zstd,subvol=@home $homep /mnt/home
+			;;
+		*)
+			;;
+	esac
 	cont
 }
 
