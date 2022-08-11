@@ -41,7 +41,7 @@ function set-time {
 	timedatectl set-local-rtc 1 --adjust-system-clock
 }
 
-function partion {
+function partition {
 	br
 	read -r -p "Do you want to do partioning? [y/N] " resp
 	case "$resp" in
@@ -82,23 +82,8 @@ function mounting {
 	mount $bootp /mnt/boot
     mount -o noatime,commit=120,compress=zstd,subvol=@opt $rootp /mnt/opt
     mount -o noatime,commit=120,compress=zstd,subvol=@tmp $rootp /mnt/tmp
-    mount -o subvol=@var $rootp /mnt/var
-	#read -r -p "Do you want to use a seperate home partition? [y/N] " responsehome
-	#case "$responsehome" in
-	#	[yY][eE][sS]|[yY])
-			read -r -p "which is your home partition? " homep
-			read -r -p "Do you want to format your home partition? [y/N] " rhome
-			case "$rhome" in
-				[yY][eE][sS]|[yY])
-					mkfs.btrfs -f $homep
-					mount -o noatime,commit=120,compress=zstd,subvol=@home $homep /mnt/home
-					;;
-				*)
-					;;
-			esac
-			;;
-		*)
-			;;
+	mount -o noatime,commit=120,compress=zstd,subvol=@home $rootp /mnt/home
+	mount -o subvol=@var $rootp /mnt/var
 	esac
 	cont
 }
@@ -165,9 +150,9 @@ function install-deepin {
 }
 
 function install-kde {
-	pacstrap /mnt xorg plasma sddm plasma-wayland-protocold plasma-wayland-session
+	pacstrap /mnt xorg plasma kde-applications sddm plasma-wayland-protocols plasma-wayland-session
 	arch-chroot /mnt bash -c "systemctl enable sddm && exit"
-	pacstrap /mnt ark dolphin ffmpegthumbs gwenview kaccounts-integration kate kdialog kio-extras konsole ksystemlog okular print-manager
+	pacstrap /mnt ark dolphin ffmpegthumbs gwenview kaccounts-integration kate kdialog kio-extras konsole ksystemlog okular print-manager pipewire 
 }
 
 function de {
@@ -212,8 +197,8 @@ function archroot {
     #echo -e "adding btrfs module to mkinitcpio"
     #arch-chroot /mnt 
 
-	echo -e "Setting up Region and Language\n"
-	arch-chroot /mnt bash -c "ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime && hwclock --systohc && sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen && locale-gen && echo 'LANG=en_US.UTF-8' > /etc/locale.conf && exit"
+	echo -e "Setting up Language\n"
+	arch-chroot /mnt bash -c "hwclock --systohc && sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen && locale-gen && echo 'LANG=en_US.UTF-8' > /etc/locale.conf && exit"
 
 	echo -e "Setting up Hostname\n"
 	arch-chroot /mnt bash -c "echo $hname > /etc/hostname && echo 127.0.0.1	$hname > /etc/hosts && echo ::1	$hname >> /etc/hosts && echo 127.0.1.1	$hname.localdomain	$hname >> /etc/hosts && exit"
@@ -245,7 +230,7 @@ function browser {
 	read -r -p "Install firefox? [y/N] " ff
 	case "$ff" in
 		[yY][eE][sS]|[yY])
-			arch-chroot bash -c "pacman -S firefox && exit"
+			arch-chroot /mnt bash -c "pacman -S firefox && exit"
 			;;
 		*)
 			;;
@@ -253,7 +238,7 @@ function browser {
 	read -r -p "Install firefox nightly? [y/N]" ffn
 	case "$ffn" in
 	    [yY][eE][sS]|[yY])
-		    arch-chroot bash -c "pacman -S firefox-nightly-bin && exit"
+		    arch-chroot /mnt bash -c "pacman -S firefox-nightly && exit"
 			;;
         *)
 		    ;;
@@ -261,7 +246,7 @@ function browser {
 	read -r -p "Install chromium? [y/N] " chrom
 	case "$chrom" in
 		[yY][eE][sS]| [yY])
-			arch-chroot bash -c "pacman -S chromium && exit"
+			arch-chroot /mnt bash -c "pacman -S chromium && exit"
 			;;
 		*)
 			;;
@@ -272,6 +257,10 @@ function browser {
 function install-amd {
 	pacstrap /mnt mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon
 	pacstrap /mnt libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
+}
+function install-intel {
+	pacstrap /mnt mesa lib32-mesa vulkan-intel lib32-vulkan-intel 
+	pacsrap /mnt libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
 }
 function install-nvidia {
 	br
@@ -289,14 +278,17 @@ function install-nvidia {
 function graphics {
 	br
 	echo -e "Choose Graphic card drivers to install: \n"
-	echo -e "1. AMD \n2. Nvidia \n3. None"
-	read -r -p "Drivers [1/2/3]: " drivere
-	case "$drivere" in
+	echo -e "1. AMD \n2. Nvidia \n3. Intel \n4. None"
+	read -r -p "Drivers [1/2/3/4]: " drivers
+	case "$drivers" in
 		1)
 			install-amd
 			;;
 		2)
 			install-nvidia
+			;;
+		3)
+		    install-intel
 			;;
 		*)
 			;;
@@ -330,19 +322,19 @@ function additional {
 }
 
 function chaotic-aur {
-	br read -r -p "Do you want to add the Chaotic-aur mirror [Y/n] " chaotic
+	br read -r -p "Do you want to add the Chaotic-aur repo [Y/n] " chaotic
 	case "$chaotic" in 
 	     [Yy][eE][sS]|yY)
-		    arch-chroot bash -c "pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com && pacman-key --lsign-key FBA220DFC880C036 && exit" 
-			arch-chroot bash -c "pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' && exit"
-			arch-chroot bash -c "echo '[chaotic-aur]' >> /etc/pacman.conf && echo Include = '/etc/pacman.d/chaotic-mirrorlist' >> /etc/pacman.conf && exit"
+		    arch-chroot /mnt bash -c "pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com && pacman-key --lsign-key FBA220DFC880C036 && exit" 
+			arch-chroot /mnt bash -c "pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' && exit"
+			arch-chroot /mnt bash -c "echo '[chaotic-aur]' >> /etc/pacman.conf && echo Include = '/etc/pacman.d/chaotic-mirrorlist' >> /etc/pacman.conf && pacman -Sy && exit"
 	esac
 	cont
 }
 
 function full-installation {
 	set-time
-	partion
+	partition
 	mounting
 	base
 	archroot
@@ -374,7 +366,7 @@ function step-installation {
 	echo "13. installing browsers"
 	read -r -p "Enter the number of step : " stepno
 
-	array=(set-time partion mounting base archroot set-timezone de installgrub graphics installsteam additional chaotic-aur browser)
+	array=(set-time partition mounting base archroot set-timezone de installgrub graphics installsteam additional chaotic-aur browser)
 	#array=(ascii ascii ascii)
 	stepno=$[$stepno-1]
 	while [ $stepno -lt ${#array[*]} ]
