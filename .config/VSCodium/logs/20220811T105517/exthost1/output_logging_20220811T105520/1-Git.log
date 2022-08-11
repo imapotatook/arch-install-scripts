@@ -1,0 +1,22 @@
+[2022-08-11T01:25:20.763Z] Log level: Info
+[2022-08-11T01:25:20.764Z] [info] Validating found git in: git
+[2022-08-11T01:25:20.776Z] [info] Using git 2.37.1 from git
+[2022-08-11T01:25:20.790Z] > git rev-parse --show-toplevel [4ms]
+[2022-08-11T01:25:20.799Z] > git rev-parse --git-dir --git-common-dir [1ms]
+[2022-08-11T01:25:20.807Z] [info] Open repository: /home/potato
+[2022-08-11T01:25:21.122Z] > git status -z -uall [305ms]
+[2022-08-11T01:25:21.232Z] > git show --textconv :arch-setup-test.sh [4ms]
+[2022-08-11T01:25:21.233Z] > git ls-files --stage -- /home/potato/arch-setup-test.sh [1ms]
+[2022-08-11T01:25:21.237Z] > git cat-file -s cff3daa8ac182c3ba40678ba3930271a2b125891 [1ms]
+[2022-08-11T01:25:21.530Z] > git check-ignore -v -z --stdin [1ms]
+[2022-08-11T01:25:43.813Z] > git symbolic-ref --short HEAD [1ms]
+[2022-08-11T01:25:43.818Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+[2022-08-11T01:25:43.824Z] > git remote --verbose [1ms]
+[2022-08-11T01:25:43.824Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+[2022-08-11T01:25:43.942Z] > git config --get commit.template [2ms]
+[2022-08-11T01:25:45.529Z] > git status -z -uall [1580ms]
+[2022-08-11T01:25:45.529Z] > git symbolic-ref --short HEAD [1ms]
+[2022-08-11T01:25:45.534Z] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [1ms]
+[2022-08-11T01:25:45.541Z] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [4ms]
+[2022-08-11T01:25:45.541Z] > git remote --verbose [1ms]
+[2022-08-11T01:25:45.626Z] > git config --get commit.template [1ms]

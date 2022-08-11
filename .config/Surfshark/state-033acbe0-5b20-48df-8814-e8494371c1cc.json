@@ -1,0 +1,201 @@
+{
+	"user-state": {
+		"status": "logged-in",
+		"me": {
+			"userServices": [],
+			"daysAfterSignup": 1277,
+			"email": "theshrkclan123@gmail.com",
+			"twoFactorAuth": null,
+			"roles": [],
+			"availableRoles": [],
+			"passwordUpdatedAt": "2021-10-19T11:02:21+00:00",
+			"allowPromotion": true,
+			"language": "en",
+			"billingInfo": null,
+			"technologies": [
+				"vpn"
+			],
+			"id": "033acbe0-5b20-48df-8814-e8494371c1cc"
+		},
+		"subscription": {
+			"taxCountry": "AU",
+			"regionName": null,
+			"zipCode": null,
+			"taxPercentage": 10,
+			"price": {
+				"amount": 6574,
+				"currency": {
+					"code": "USD"
+				}
+			},
+			"tax": {
+				"amount": 598,
+				"currency": {
+					"code": "USD"
+				}
+			},
+			"expiresAt": "2024-03-17T07:43:52+00:00",
+			"upgradable": true,
+			"productPlanId": "a7561846-bc04-11e8-a555-06b9bd640afa",
+			"name": "24 Months",
+			"frequency": 24,
+			"frequencyUnit": "month",
+			"startingBonus": 12,
+			"displayFrequency": 0,
+			"status": "active",
+			"type": "general",
+			"renewable": true,
+			"orders": [
+				{
+					"taxCountry": "AU",
+					"regionName": null,
+					"zipCode": null,
+					"taxPercentage": 10,
+					"price": {
+						"amount": 6574,
+						"currency": {
+							"code": "USD"
+						}
+					},
+					"tax": {
+						"amount": 598,
+						"currency": {
+							"code": "USD"
+						}
+					},
+					"expiresAt": "2022-03-13T01:15:45+00:00",
+					"paymentProvider": {
+						"id": "73691980-de30-4387-bdda-23e34be3800f",
+						"code": "surfshark_cleverbridge",
+						"isActive": true,
+						"name": "PayPal",
+						"setupConfig": {
+							"staticTax": true
+						},
+						"currencies": [
+							"EUR",
+							"USD"
+						],
+						"defaultCurrency": "USD",
+						"category": null,
+						"upgradable": true,
+						"recurring": true,
+						"invoiceable": false
+					},
+					"paymentDetails": {
+						"paymentToken": "7d00449c-f5db-4f96-be69-98c8825589bd",
+						"scheme": null,
+						"cardType": null,
+						"cardLastNumber": null,
+						"cardExpiredYear": null,
+						"cardExpiredMonth": null,
+						"email": null,
+						"createdAt": "2022-03-13T01:00:45+00:00",
+						"updatedAt": "2022-03-13T01:02:39+00:00"
+					},
+					"upgrade": false,
+					"originalOrderId": null,
+					"frequency": 24,
+					"frequencyUnit": "month",
+					"trial": false,
+					"status": "success",
+					"orderIntent": {
+						"type": "init_default",
+						"items": []
+					},
+					"invoiceNumber": null,
+					"invoiceBusiness": false,
+					"customerId": "033acbe0-5b20-48df-8814-e8494371c1cc",
+					"id": "ed818853-581e-41ce-b7fe-fb5bf23bfcbd",
+					"createdAt": "2022-03-13T01:00:45+00:00",
+					"updatedAt": "2022-03-28T01:14:57+00:00"
+				}
+			],
+			"pricingInformation": {
+				"taxCountry": "AU",
+				"regionName": null,
+				"zipCode": null,
+				"taxPercentage": 10,
+				"price": {
+					"amount": 6574,
+					"currency": {
+						"code": "USD"
+					}
+				},
+				"tax": {
+					"amount": 598,
+					"currency": {
+						"code": "USD"
+					}
+				},
+				"intents": [
+					{
+						"type": "init_default",
+						"items": []
+					}
+				],
+				"items": [],
+				"customerId": "033acbe0-5b20-48df-8814-e8494371c1cc",
+				"id": "bdaa22f1-3367-4275-b989-3202d959d1df",
+				"createdAt": "2022-03-13T01:00:45+00:00",
+				"updatedAt": "2022-03-13T01:00:45+00:00"
+			},
+			"promotable": true,
+			"source": "vpn",
+			"paymentDetails": {
+				"paymentToken": "7d00449c-f5db-4f96-be69-98c8825589bd",
+				"scheme": null,
+				"cardType": null,
+				"cardLastNumber": null,
+				"cardExpiredYear": null,
+				"cardExpiredMonth": null,
+				"email": null,
+				"createdAt": "2022-03-13T01:00:45+00:00",
+				"updatedAt": "2022-03-13T01:02:39+00:00"
+			},
+			"customerId": "033acbe0-5b20-48df-8814-e8494371c1cc",
+			"id": "52e53a63-df43-434f-8546-eed205fb347d",
+			"createdAt": "2022-03-13T01:00:45+00:00",
+			"updatedAt": "2022-03-13T01:02:40+00:00",
+			"taxData": null,
+			"recurringPrice": {
+				"amount": 6574,
+				"currency": {
+					"code": "USD"
+				}
+			}
+		},
+		"userData": {
+			"ip": "45.248.79.36",
+			"isp": "",
+			"countryCode": "AU",
+			"country": "Australian",
+			"region": "",
+			"currency": "",
+			"city": "",
+			"zipCode": "",
+			"secured": true,
+			"torrent": false,
+			"restricted": false
+		}
+	},
+	"location_recents": [
+		{
+			"id": "ad720fbf-cf4b-4a99-880a-3b904804fb93",
+			"country": "Australia",
+			"countryCode": "AU",
+			"region": "Asia Pacific",
+			"regionCode": "AP",
+			"load": 14,
+			"type": "generic",
+			"location": "Adelaide",
+			"connectionName": "au-adl.prod.surfshark.com",
+			"tags": [
+				"physical"
+			],
+			"transitCluster": null,
+			"flagUrl": "https://cdn.ss-cdn.com/assets/flags/AU.png",
+			"pubKey": "J7N3UrHc71+LJkn8gsI9Ja8YcpTXT8fV789LLKnIXAY="
+		}
+	]
+}
