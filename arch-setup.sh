@@ -1,22 +1,12 @@
 #!/bin/bash
 
-# https://github.com/prmsrswt/arch-install.sh
-
 function ascii {
 
-	#Added ASCII Art cause why not
-	echo	' $$$$$$\                      $$\             $$$$$$\                       $$\               $$\ $$\ '
-	echo	'$$  __$$\                     $$ |            \_$$  _|                      $$ |              $$ |$$ |'
-	echo	'$$ /  $$ | $$$$$$\   $$$$$$$\ $$$$$$$\          $$ |  $$$$$$$\   $$$$$$$\ $$$$$$\    $$$$$$\  $$ |$$ |'
-	echo	'$$$$$$$$ |$$  __$$\ $$  _____|$$  __$$\         $$ |  $$  __$$\ $$  _____|\_$$  _|   \____$$\ $$ |$$ |'
-	echo	'$$  __$$ |$$ |  \__|$$ /      $$ |  $$ |        $$ |  $$ |  $$ |\$$$$$$\    $$ |     $$$$$$$ |$$ |$$ |'
-	echo	'$$ |  $$ |$$ |      $$ |      $$ |  $$ |        $$ |  $$ |  $$ | \____$$\   $$ |$$\ $$  __$$ |$$ |$$ |'
-	echo	'$$ |  $$ |$$ |      \$$$$$$$\ $$ |  $$ |      $$$$$$\ $$ |  $$ |$$$$$$$  |  \$$$$  |\$$$$$$$ |$$ |$$ |'
-	echo	'\__|  \__|\__|       \_______|\__|  \__|      \______|\__|  \__|\_______/    \____/  \_______|\__|\__|'
-	echo	'                                                                                                      '
+	#Added ASCII Art cause why not                                                                                        
 	echo	' HI COOK :)                                                                                                      '
 
 }
+
 
 function cont {
 	read -r -p "[SUCCESS] Continue to next step? [Y/n] " cont
@@ -85,18 +75,18 @@ function mounting {
 		esac
     esac
 	if [[ $responseh =~ ([yY][eE][sS]|[yY])$ ]]; then
-		mount "$homep" /mnt
-		btrfs su cr /mnt/@home
-		umount /mnt
-		mount -o noatime,commit=120,compress=zstd,subvol=@ "$rootp" /mnt
-		mount -o noatime,commit=120,compress=zstd,subvol=@home "$homep" /mnt/home
-        else 
-	    mount "$rootp" /mnt
-	    btrfs su cr /mnt/@home
-	    umount /mnt
-		mount -o noatime,commit=120,compress=zstd,subvol=@ "$rootp" /mnt
-	    mount -o noatime,commit=120,compress=zstd,subvol=@home "$rootp" /mnt/home
-        fi
+		    mount "$homep" /mnt
+		    btrfs su cr /mnt/@home
+		    umount /mnt
+		    mount -o noatime,commit=120,compress=zstd,subvol=@ "$rootp" /mnt
+		    mount -o noatime,commit=120,compress=zstd,subvol=@home "$homep" /mnt/home
+    else 
+	        mount "$rootp" /mnt
+	        btrfs su cr /mnt/@home
+	        umount /mnt
+		    mount -o noatime,commit=120,compress=zstd,subvol=@ "$rootp" /mnt
+	        mount -o noatime,commit=120,compress=zstd,subvol=@home "$rootp" /mnt/home
+    fi
 		mount "$bootp" /mnt/boot
         mount -o noatime,commit=120,compress=zstd,subvol=@opt "$rootp" /mnt/opt
         mount -o noatime,commit=120,compress=zstd,subvol=@tmp "$rootp" /mnt/tmp
@@ -169,9 +159,11 @@ function install-deepin {
 }
 
 function install-kde {
-	pacstrap /mnt xorg plasma kde-applications sddm plasma-wayland-protocols plasma-wayland-session
+	pacstrap /mnt xorg plasma sddm plasma-wayland-protocols plasma-wayland-session
 	arch-chroot /mnt bash -c "systemctl enable sddm && exit"
-	pacstrap /mnt ark dolphin ffmpegthumbs gwenview kaccounts-integration kate kdialog kio-extras konsole ksystemlog okular print-manager pipewire alacritty latte-dock htop vscodium zsh
+	pacstrap /mnt ark dolphin ffmpegthumbs gwenview kaccounts-integration kate kdialog kio-extras ksystemlog okular print-manager pipewire alacritty latte-dock htop vscodium zsh \
+	ark audiocd-kio dolphin dolphin-plugins filelight kcalc kcron kdegraphics-thumbnailers kdenetwork-filesharing kdesdk-kioslaves kdesdk-thumbnailers kdialog \
+	kio-gdrive kompare markdownpart partitionmanager skanlite skanpage svgpart zeroconf-ioslave
 }
 
 function de {
@@ -243,15 +235,15 @@ function browser {
 	read -r -p "Install firefox? [y/N] " ff
 	case "$ff" in
 		[yY][eE][sS]|[yY])
-			arch-chroot /mnt bash -c "pacman -S firefox && exit"
+			pacstrap /mnt firefox
 			;;
 		*)
 			;;
 	esac
-	read -r -p "Install firefox nightly? [y/N]" ffn
+	read -r -p "Install firefox nightly? (req chaotic-aur) [y/N]" ffn
 	case "$ffn" in
 	    [yY][eE][sS]|[yY])
-		    arch-chroot /mnt bash -c "pacman -S firefox-nightly && exit"
+		    pacstrap /mnt firefox-nightly
 			;;
         *)
 		    ;;
@@ -259,7 +251,7 @@ function browser {
 	read -r -p "Install chromium? [y/N] " chrom
 	case "$chrom" in
 		[yY][eE][sS]| [yY])
-			arch-chroot /mnt bash -c "pacman -S chromium && exit"
+			pacstrap /mnt chromium
 			;;
 		*)
 			;;
@@ -272,8 +264,8 @@ function install-amd {
 	pacstrap /mnt libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
 }
 function install-intel {
-	arch-chroot /mnt bash -c "pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel" 
-	arch-chroot /mnt bash -c "pacman -S libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau && exit"
+	pacstrap /mnt pacman -S mesa lib32-mesa vulkan-intel lib32-vulkan-intel 
+	pacstrap /mnt libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau
 }
 function install-nvidia {
 	read -r -p "Do you want proprietary nvidia drivers? [y/N] " graphic
